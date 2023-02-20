@@ -5,3 +5,243 @@
     padding: 0;
     box-sizing: border-box;
 }
+:root {
+    --color-for-x: rgb(7, 208, 243);
+    --color-for-o: rgb(248, 225, 16);
+    --primary-background: rgb(46, 49, 41);
+}
+body {
+    font-family: cursive;
+    background-color: var(--primary-background);
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    margin: auto;
+}
+.logos span, .game-grid .boxes-container .box{
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--color-for-o);
+}
+.game-grid .boxes-container .box {
+    font-size: 4rem;
+}
+.logos .x-logo {
+    color: var(--color-for-x);
+}
+.game-option > .logos {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.game-option .pick-mark {
+    background-color: darkslategray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+    border-radius: 5px;
+}
+
+.game-option button {
+    width: 100%;
+    padding: 15px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.game-option .cpu-btn {
+    margin: 20px 0;
+    background-color: var(--color-for-o);
+}
+.pick-mark > p {
+    color: #fff;
+}
+
+.pick-mark > span {
+    color: white;
+    font-size: 12px;
+}
+.pick-mark .box {
+    background-color:var(--primary-background);
+    border-radius: 10px;
+    width: 90%;
+}
+.pick-mark .box .box-logos {
+    display: flex;
+    justify-content: space-between;
+}
+.pick-mark .box .box-logos span {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+.pick-mark .box .box-logos span.active {
+    background-color: gray;
+    color: var(--primary-background)
+}
+header .turn-selector {
+    background-color: ;
+    color: gray;
+    font-size: ;
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, .22), -4px -4px 5px rgba(0, 0, 0, .22);
+    padding:0 5px;
+    height: ;
+}
+header .turn-selector p {
+    font-size: 1rem;
+    font-weight: 900;
+}
+header .turn-selector p span {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+header button {
+    background-color: gray;
+    padding: 7px 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+header button i {
+    font-size: ;
+}
+main {
+    width: 90%;
+    margin: 50px auto;
+}
+main .game-grid .boxes-container, main .game-grid .score-board {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(50px, 1fr));
+    grid-template-rows: repeat(3, minmax(80px, 1fr));
+    gap: 20px;
+}
+main .game-grid .score-board {
+    margin-top: 40px;
+}
+main .hide-grid {
+    display: none;
+}
+.hide-head {
+    display: none;
+}
+.hide-option {
+    display: none;
+}
+
+.game-grid .boxes-container .box, .game-grid .score-board .score {
+    display: grid;
+    place-items: center;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .22), -5px -5px 10px rgba(0, 0, 0, .22);
+    cursor: pointer;
+    transition: opacity 0.5s linear;
+}
+.game-grid .score-board .score {
+    background-color: grey;
+    height: 70px;
+    display: flex;
+    gap: 7px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: auto;
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+.game-grid .score-board .score  p:first-child {
+    font-size: 0.6rem;
+}
+.game-grid .score-board .score-x {
+    background-color: var(--color-for-x);
+    order: ;
+}
+.game-grid .score-board .score-o {
+    background-color: var(--color-for-o);
+    order: ;
+}
+.game-grid .score-board .score-tie {
+    order: ;
+}
+.game-grid .boxes-container .box:hover {
+    opacity: 0.7;
+}
+.winner-box {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .22);
+    color: white;
+}
+.winner-box > .box {
+    display: grid;
+    place-items: center;
+    padding: 40px 0;
+    gap: 20px;
+    background-color: var(--color-for-x);
+    width: 100%;
+}
+.winner-box .box .announcement {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #fff;
+}
+.winner-box .box p {
+    color: var(--primary-background);
+    font-weight: 600;
+    font-size: 2em;
+    text-transform: capitalize;
+}
+.box > p span {
+    font-size: 25px;
+    font-weight: 1000;
+    vertical-align: ;
+}
+.winner-box .btn-container{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.btn-container button {
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-weight: 900;
+    background-color: var(--color-for-o);
+    cursor: pointer;
+}
+.btn-container button:first-child {
+    background-color: grey;
+}
+.hide-winner-box {
+    display: none;
+}
+@media (min-width: 768px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 100px;
+    }
+    main, header {
+        width: 500px;
+    }
+    main {
+        margin: 10px auto
+    }
+}

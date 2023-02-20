@@ -6,8 +6,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TIC TAC TOE</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="css/all.css">
 </head>
 <body>
+    <header class="hide-head">
+        <section class="logos">
+            <span class="x-logo">x</span>
+            <span class="o-logo">o</span>
+        </section>
+        <section class="turn-selector">
+            <p><span class="selected-turn">x</span>TURN</p>
+        </section>
+        <button class="reload">
+            <i class="fa-solid fa-rotate-right"></i>
+        </button>
+    </header>
+    <main>
+        <section class="game-grid hide-grid">
+           <article class="boxes-container">
+                <section class="box" id="0"></section>  
+                <section class="box" id="1"></section>
+                <section class="box" id="2"></section>
+                <section class="box" id="3"></section>
+                <section class="box" id="4"></section>
+                <section class="box" id="5"></section>
+                <section class="box" id="6"></section>
+                <section class="box" id="7"></section>
+                <section class="box" id="8"></section>
+           </article>
+           <article class="score-board">
+            <section class="score score-x">
+                <p>X <span>(YOU)</span></p>
+                <p class="count">0</p>
+            </section>
+            <section class="score score-tie">
+                <p>TIE</p>
+                <p class="count">0</p>
+            </section>
+            <section class="score score-o">
+                <p>O<span>(CPU)</span></p>
+                <p class="count">0</p>
+            </section>
+
+           </article>
+        </section>
+        <section class="game-option">
+            <article class="logos">
+                <span class="x-logo">x</span>
+                <span class="o-logo">o</span>
+            </article>
+            <article class="pick-mark">
+                <p>PICK PLAYER 1'S MARK</p>
+                <section class="box">
+                    <article class="logos box-logos">
+                        <span class="x-logo picker active">x</span>
+                        <span class="o-logo picker">o</span>
+                    </article>
+                </section>
+                <span>REMEBER: X GOES FIRST</span>
+            </article>
+            <button type="button" class="cpu-btn">NEW GAME (VS CPU)</button>
+            <button type="button" class="player-btn">NEW GAME (VS PLAYER)</button>
+        </section>
+        <section class="winner-box hide-winner-box">
+            <article class="box">
+                <span class="announcement">YOU WON!</span>
+                <p class="winner">TAKES THE ROUND</p>
+                <section class="btn-container">
+                    <button type="button" class="quit">QUIT</button>
+                    <button type="button" class="next-round">NEXT ROUND</button>
+                </section>
+            </article>
+        </section>
+    </main>
     <script src="scripts/app.js"></script>
 </body>
 </html>
