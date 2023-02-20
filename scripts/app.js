@@ -233,7 +233,7 @@ const runGame = (() => {
                                     annoucementText.textContent = 'you lost';
                                     winnerBox.classList.remove('hide-winner-box');
                                     winnerIndicator.textContent = `${turn} takes the round`;
-                                    document.querySelector(`.score-${turn}.count`).textContent++;
+                                    document.querySelector(`.score-${turn} .count`).textContent++;
                                 }
                                 changeTurn();
                             }
