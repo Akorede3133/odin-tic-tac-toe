@@ -13,6 +13,7 @@ const runGame = (() => {
     const gameOption = document.querySelector('.game-option');
     const reloadBtn = document.querySelector('.reload');
     const pickers = document.querySelectorAll('.picker');
+    const selectedTurn = document.querySelector('.selected-turn');
     const quitAndNextRoundBtns = document.querySelectorAll('.btn-container button');
     /***End of variable declarations ***/
 
@@ -62,6 +63,7 @@ const runGame = (() => {
                 const target = e.currentTarget;
                 target.classList.add('active');
                 turn = target.textContent;
+                selectedTurn.textContent = turn;
                 if (turn === 'o') {
                     document.querySelector('.game-grid .score-board .score-x ').style.order = 3;
                     document.querySelector('.game-grid .score-board .score-x p span').textContent = `(CPU)`;
@@ -210,7 +212,11 @@ const runGame = (() => {
             flow.boxes.forEach(item=> {
                 item.addEventListener('click', (e) => {
                     e.target.textContent = turn;
+                    selectedTurn.textContent = turn;
                     e.target.style.pointerEvents = 'none';
+                    if (selectMode().mode === 'cpu') {
+                        flow.disableBoxes();
+                    }
                     if (flow.remainingBoxes().length === 0 && !decideWinner().val) {
                         winnerBox.classList.remove('hide-winner-box');
                         winnerIndicator.textContent = 'TIE';
@@ -225,8 +231,9 @@ const runGame = (() => {
                         }
                         else {
                             changeTurn();
+                            selectedTurn.textContent = turn;
                             if (selectMode().mode === 'cpu') {
-                                flow.disableBoxes();
+                              setTimeout(()=> {
                                 playerTwo();
                                 flow.enableBoxes();
                                 if (decideWinner().val) {
@@ -236,6 +243,8 @@ const runGame = (() => {
                                     document.querySelector(`.score-${turn} .count`).textContent++;
                                 }
                                 changeTurn();
+                                selectedTurn.textContent = turn;
+                              }, 500)
                             }
                         }
                     }
