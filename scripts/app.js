@@ -42,6 +42,10 @@ const runGame = (() => {
                 document.querySelector('.logos .x-logo.picker').classList.add('active');
                 document.querySelector('.logos .o-logo.picker').classList.remove('active');
                 annoucementText.textContent = '';
+                document.querySelectorAll('.count').forEach(item => {
+                    item.textContent = 0;
+                })
+                selectedTurn.textContent = 'x';
             } else {
                 flow.clearBoxes();
                 winnerBox.classList.add('hide-winner-box');
